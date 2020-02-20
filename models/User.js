@@ -1,3 +1,6 @@
+//NOTE: this user model controls all the business logic regarding our user data
+
+
 //create a userCollection variable from which you can perform db CRUD operations
 const userCollection = require('../db').collection("users")
 
@@ -45,6 +48,18 @@ User.prototype.validate = function(){
 
 
 }
+
+User.prototype.login = function(callback){
+    this.cleanUp()
+    userCollection.findOne({username: this.data.username}, (err, attemptedUser) =>{
+if (attemptedUser && attemptedUser.password == this.data.password){
+    callback("Congrats!!!!")
+}else{
+callback("Invalid username or password!")
+}
+    })
+}
+
 
 
 User.prototype.register = function(){

@@ -48,7 +48,7 @@ User.prototype.validate = function(){
 }
 
 User.prototype.login = function(){
-    return new Promise(function(resolve, reject){
+    return new Promise((resolve, reject)=>{
         this.cleanUp()
         userCollection.findOne({username: this.data.username}, (err, attemptedUser) =>{
     if (attemptedUser && attemptedUser.password == this.data.password){

@@ -10,7 +10,7 @@ const mongodb = require('mongodb')
 mongodb.connect(process.env.CONNECTIONSTRING, 
     {useUnifiedTopology: true, useNewUrlParser: true}, function(err, client){
 
-    module.exports = client.db()
+    module.exports = client
     const app = require ('./app')
 
     //connect to server after db connection is established

@@ -10,7 +10,7 @@ exports.login = function(req, res){
 let user = new User(req.body)
 user.login().then(function (result){
 
-    req.session.user ={favColor: "blue" ,username: user.data.username}
+    req.session.user ={favColor: "blue", username: user.data.username}
     res.send(result)
 }).catch(function(e){
 
@@ -39,10 +39,11 @@ res.send("Congrats, there are no errors")
  
 exports.home= function(req, res){
 if (req.session.user) {
-    res.send("Welcome to the actual application")
+    res.send("Welcome to the actual application!")
 
 }
 else{
+    res.render('home-guest')
 
 }
 

@@ -4,13 +4,13 @@ const app = express()
 
 
 let sessionOptions = session({
-
-    secret: "Javascript is different from Java",
-    resave: false,
-saveUninitialized: false
-cookie: {maxAge: 1000 * 60 * 60 * 24}
-
+secret: "Javascript is different from Java",
+resave: false,
+saveUninitialized: false,
+cookie: {maxAge: 1000 * 60 * 60 * 24, httpOnly: true}
 })
+ 
+app.use(sessionOptions)
 
 const router = require('./router')
 

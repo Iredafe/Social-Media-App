@@ -4,7 +4,7 @@
 const bcrypt=require ("bcryptjs")
 
 //create a userCollection variable from which you can perform db CRUD operations
-const userCollection = require('../db').collection("users")
+const userCollection = require('../db').db().collection("users")
 
 /*install validator paclkage with npm install 
 validator and create a validator variable for validating users*/

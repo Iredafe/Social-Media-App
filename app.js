@@ -1,7 +1,7 @@
 const express = require('express')
 const session = require('express-session')
 const app = express()
-const MongoStore= require('connect-mongo')
+const MongoStore= require('connect-mongo')(session)
 
 let sessionOptions = session({
 secret: "Javascript is different from Java",
